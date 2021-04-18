@@ -4,9 +4,6 @@ cmake_minimum_required(VERSION 3.10)
 # Project name
 project(cmake_example)
 
-# Options
-set(CMAKE_CXX_STANDARD 11)
-
 # Source files
 set(SOURCES
     src/main.cpp
