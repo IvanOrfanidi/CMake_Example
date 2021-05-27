@@ -6,7 +6,7 @@ project(cmake_example)
 
 # Source files
 set(SOURCES
-    src/main.cpp
+    source/main.cpp
 )
 
 # Compiling target
