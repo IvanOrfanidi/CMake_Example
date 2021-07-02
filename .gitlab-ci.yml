@@ -1,6 +1,7 @@
 stages:
   - checking
   - building
+  - docker
 
 clang-format:
   stage: checking
@@ -32,3 +33,9 @@ clang:
       -DCMAKE_BUILD_TYPE=Release
       ..
     - cmake --build .
+
+ubuntu-18.04:
+  stage: docker
+  script:
+    - docker build -t cmake_example:latest .
+    - docker run --rm cmake_example
