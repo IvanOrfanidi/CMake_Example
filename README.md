@@ -1,19 +1,31 @@
-Example of building an using CMake
-====
----
+## Example of building an using CMake
 
-## Build Tools Manager
-* CMake here:
-***https://cmake.org/***
+### Build using CMake
+```sh
+mkdir build
+cd build
+cmake -G "Unix Makefiles"
+cmake --build .
+```
 
-* Ninja here:
-***https://ninja-build.org/***
----
+### Build using Docker
 
-## Compiler
-* GCC
-***https://gcc.gnu.org/***
+#### Building:
+```sh
+docker build -t cmake_example:latest .
+```
 
-* Clang
-***https://clang.llvm.org/***
----
+#### Running:
+```sh
+docker run -it --rm cmake_example
+```
+
+#### Extraction:
+```sh
+docker create -it --name dummy cmake_example:latest bash
+docker cp dummy:/CMake_Example/build/cmake_example .
+rm -rf build/
+mkdir build/
+mv cmake_example build/
+docker rm -f dummy
+```
